@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Carl's Capacitor PWA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="takePicture()" expand="block" shape="round">
+    <ion-icon name="camera" slot="start"></ion-icon>
+    Capture image
+  </ion-button>
+
+  <ion-img *ngIf="myImage" [src]="myImage"></ion-img>
+
+  <ion-button (click)="getCurrentPosition()" expand="block" shape="round" color="warning">
+    <ion-icon name="locate" slot="start"></ion-icon>
+    Get position
+  </ion-button>
+
+  <!-- present the geolocation information -->
+  <ion-card *ngIf="position">
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="location" slot="start"></ion-icon>
+        Lat: {{ position.coords.latitude }}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="location" slot="start"></ion-icon>
+        Lng: {{ position.coords.longitude }}
+      </ion-item>
+
+      <ion-button (click)="share()" expand="block" shape="round" color="danger">
+        <ion-icon name="share" slot="start"></ion-icon>
+        Share!
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
