@@ -17,8 +17,8 @@ export class HomePage {
   //position: Position = null;
   //In tsconfig.json file, I added "strictNullChecks": false to accept null values below
 
-  myImage: string = null;
-  position: Position = null;
+  myImage!: string | undefined; //myImage: string = null;
+  position!: Position;
 
   constructor() {}
 
